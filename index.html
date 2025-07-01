@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cipta Hospital</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed top-0 left-0 w-full z-50">
+        <div class="max-w-screen-xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-700">🏥 Cipta Hospital</h1>
+            <div class="md:hidden">
+                <button id="menuToggle" class="text-blue-700 text-2xl focus:outline-none">&#9776;</button>
+            </div>
+            <nav id="mobileMenu" class="
+      md:flex flex-col md:flex-row md:space-x-6
+      absolute md:static top-full left-0 w-full md:w-auto
+      bg-white shadow-md md:shadow-none px-6 py-2 md:p-0
+      opacity-0 translate-y-2 transition-all duration-300 ease-in-out
+      pointer-events-none md:opacity-100 md:translate-y-0 md:pointer-events-auto hidden
+    ">
+                <a href="#beranda" class="block py-2 md:py-0 hover:text-blue-500">Beranda</a>
+                <a href="#profile" class="block py-2 md:py-0 hover:text-blue-500">Profil</a>
+                <a href="#services" class="block py-2 md:py-0 hover:text-blue-500">Layanan</a>
+                <a href="#fasilitas" class="block py-2 md:py-0 hover:text-blue-500">Fasilitas</a>
+                <a href="#doctors" class="block py-2 md:py-0 hover:text-blue-500">Dokter</a>
+                <a href="#contact" class="block py-2 md:py-0 hover:text-blue-500">Kontak</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative pt-52 pb-40 min-h-[600px]">
+        <div class="absolute inset-0">
+            <img src="img/hero.png" alt="Hospital" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-blue-900 bg-opacity-50"></div>
+        </div>
+        <div class="relative container mx-auto text-center z-10 text-white px-4" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-4">Selamat Datang di Cipta Hospital</h2>
+            <p class="text-lg mb-6">Kami memberikan layanan kesehatan terbaik untuk Anda</p>
+            <div class="space-x-4">
+                <a href="#doctors" class="bg-blue-600 text-white font-semibold px-6 py-2 rounded-full shadow hover:bg-blue-700 transition">Lihat Jadwal</a>
+                <button onclick="bukaFormulir()" class="bg-white text-blue-700 font-semibold px-6 py-2 rounded-full shadow hover:bg-gray-100 transition">
+                Daftar Online
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Formulir -->
+    <div id="modalFormulir" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6 relative">
+            <h2 class="text-xl font-bold mb-4">Formulir Pendaftaran Online</h2>
+            <form class="space-y-4">
+                <div>
+                    <label class="block mb-1">Nama Lengkap</label>
+                    <input type="text" class="w-full border border-gray-300 rounded px-3 py-2" required>
+                </div>
+                <div>
+                    <label class="block mb-1">Email</label>
+                    <input type="email" class="w-full border border-gray-300 rounded px-3 py-2" required>
+                </div>
+                <div>
+                    <label class="block mb-1">Nomor Telepon</label>
+                    <input type="tel" class="w-full border border-gray-300 rounded px-3 py-2" required>
+                </div>
+                <div>
+                    <label class="block mb-1">Layanan yang Dipilih</label>
+                    <select class="w-full border border-gray-300 rounded px-3 py-2" required>
+          <option value="">-- Pilih Layanan --</option>
+          <option>Rawat Jalan</option>
+          <option>Rawat Inap</option>
+          <option>Medical Check-up</option>
+          <option>Konsultasi Dokter</option>
+        </select>
+                </div>
+                <div class="text-right">
+                    <button type="button" onclick="tutupFormulir()" class="mr-2 px-4 py-2 rounded bg-gray-300 hover:bg-gray-400">Batal</button>
+                    <button type="submit" class="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700">Kirim</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto">
+            <h3 class="text-4xl font-semibold text-center mb-12" data-aos="fade-up">Layanan Medis</h3>
+            <div class="w-20 h-1 bg-blue-500 mx-auto mb-12 rounded-full" data-aos="zoom-in"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 px-4">
+
+                <!-- IGD -->
+                <div class="p-8 bg-blue-50 rounded-2xl shadow-md text-center" data-aos="zoom-in">
+                    <h4 class="font-bold text-2xl text-blue-700 mb-2">🚑 IGD 24 Jam</h4>
+                    <p class="text-base text-gray-700">Penanganan gawat darurat 24 jam dengan tenaga medis profesional.</p>
+                </div>
+
+                <!-- Klinik Spesialis -->
+                <div class="p-8 bg-blue-50 rounded-2xl shadow-md text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <h4 class="font-bold text-2xl text-blue-700 mb-2">🏥 Klinik Spesialis</h4>
+                    <p class="text-base text-gray-700">Berbagai dokter spesialis tersedia untuk kebutuhan kesehatan Anda.</p>
+                </div>
+
+                <!-- Rawat Inap -->
+                <div class="p-8 bg-blue-50 rounded-2xl shadow-md text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <h4 class="font-bold text-2xl text-blue-700 mb-2">🛏️ Rawat Inap</h4>
+                    <p class="text-base text-gray-700">Fasilitas kamar nyaman untuk proses pemulihan yang optimal.</p>
+                </div>
+
+                <!-- Rawat Jalan -->
+                <div class="p-8 bg-blue-50 rounded-2xl shadow-md text-center" data-aos="zoom-in" data-aos-delay="300">
+                    <h4 class="font-bold text-2xl text-blue-700 mb-2">🚶‍♀️ Rawat Jalan</h4>
+                    <p class="text-base text-gray-700">Layanan konsultasi dan pengobatan tanpa perlu rawat inap.</p>
+                </div>
+
+                <!-- Laboratorium & Radiologi -->
+                <div class="p-8 bg-blue-50 rounded-2xl shadow-md text-center" data-aos="zoom-in" data-aos-delay="400">
+                    <h4 class="font-bold text-2xl text-blue-700 mb-2">🧪 Laboratorium & Radiologi</h4>
+                    <p class="text-base text-gray-700">Pemeriksaan penunjang dengan teknologi diagnostik terbaru.</p>
+                </div>
+
+                <!-- Farmasi -->
+                <div class="p-8 bg-blue-50 rounded-2xl shadow-md text-center" data-aos="zoom-in" data-aos-delay="500">
+                    <h4 class="font-bold text-2xl text-blue-700 mb-2">💊 Farmasi</h4>
+                    <p class="text-base text-gray-700">Penyediaan obat-obatan lengkap dan berkualitas tinggi.</p>
+                </div>
+
+                <!-- Medical Check-up -->
+                <div class="p-8 bg-blue-50 rounded-2xl shadow-md text-center md:col-span-3" data-aos="zoom-in" data-aos-delay="600">
+                    <h4 class="font-bold text-2xl text-blue-700 mb-2">🩺 Medical Check-up</h4>
+                    <p class="text-base text-gray-700">Paket pemeriksaan kesehatan menyeluruh secara berkala.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile -->
+    <section id="profile" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h3 class="text-4xl font-semibold text-center mb-12" data-aos="fade-up">Profil Cipta Hospital</h3>
+            <div class="w-20 h-1 bg-blue-500 mx-auto mb-12 rounded-full" data-aos="zoom-in"></div>
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div data-aos="fade-right">
+                    <img src="img/hospital-profile.jpg" alt="Gedung Rumah Sakit" class="rounded-xl shadow-lg w-full object-cover" />
+                </div>
+                <div data-aos="fade-left">
+                    <h4 class="text-2xl font-bold text-blue-700 mb-4">Visi</h4>
+                    <p class="text-gray-700 mb-6">Menjadi rumah sakit unggulan yang memberikan pelayanan kesehatan berkualitas tinggi, berorientasi pada keselamatan dan kepuasan pasien.</p>
+                    <h4 class="text-2xl font-bold text-blue-700 mb-4">Misi</h4>
+                    <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                        <li>Memberikan pelayanan medis profesional dan terpercaya.</li>
+                        <li>Mengutamakan mutu, keselamatan, dan kenyamanan pasien.</li>
+                        <li>Terus berinovasi dalam teknologi dan sumber daya manusia.</li>
+                    </ul>
+                    <h4 class="text-2xl font-bold text-blue-700 mb-4">Nilai-Nilai</h4>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Integritas</li>
+                        <li>Empati</li>
+                        <li>Profesionalisme</li>
+                        <li>Kolaborasi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fasilitas Section -->
+    <section id="fasilitas" class="py-20 bg-white">
+        <div class="container mx-auto px-4" data-aos="fade-up">
+            <h3 class="text-4xl font-semibold text-center mb-4">Fasilitas Kami</h3>
+            <div class="w-20 h-1 bg-blue-500 mx-auto mb-12 rounded-full" data-aos="zoom-in"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Fasilitas 1 -->
+                <div class="bg-blue-50 p-6 rounded-2xl shadow hover:shadow-lg transition duration-300 text-center">
+                    <img src="img/ruang-rawat.jpg" alt="Ruang Rawat" class="w-full h-48 object-cover rounded-lg mb-4" />
+                    <h4 class="text-lg font-bold text-blue-700 mb-2">Ruang Rawat Inap</h4>
+                    <p class="text-gray-600 text-sm">Nyaman, bersih, dan dilengkapi fasilitas modern untuk pemulihan optimal.</p>
+                </div>
+
+                <!-- Fasilitas 2 -->
+                <div class="bg-blue-50 p-6 rounded-2xl shadow hover:shadow-lg transition duration-300 text-center">
+                    <img src="img/lab.jpg" alt="Laboratorium" class="w-full h-48 object-cover rounded-lg mb-4" />
+                    <h4 class="text-lg font-bold text-blue-700 mb-2">Laboratorium & Radiologi</h4>
+                    <p class="text-gray-600 text-sm">Dilengkapi alat diagnostik terkini untuk hasil cepat dan akurat.</p>
+                </div>
+
+                <!-- Fasilitas 3 -->
+                <div class="bg-blue-50 p-6 rounded-2xl shadow hover:shadow-lg transition duration-300 text-center">
+                    <img src="img/ruang-anak.jpg" alt="Ruang Anak" class="w-full h-48 object-cover rounded-lg mb-4" />
+                    <h4 class="text-lg font-bold text-blue-700 mb-2">Ruang Tunggu Anak</h4>
+                    <p class="text-gray-600 text-sm">Area bermain ramah anak untuk kenyamanan keluarga.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors -->
+    <section id="doctors" class="py-20 bg-gray-100">
+        <div class="container mx-auto">
+            <h3 class="text-4xl font-semibold text-center mb-10" data-aos="fade-up">Tim Dokter</h3>
+            <div class="w-20 h-1 bg-blue-500 mx-auto mb-10 rounded-full" data-aos="zoom-in"></div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-4">
+                <div class="text-center" data-aos="fade-up">
+                    <img src="img/doctor1.png" alt="dr. Syifa Khairunnisa" class="rounded-full mx-auto mb-4 w-40 h-40 object-cover" />
+                    <h5 class="text-xl font-bold text-blue-800">dr. Syifa Khairunnisa</h5>
+                    <p>Spesialis Anak</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <img src="img/doctor2.png" alt="dr. Harry Vaughan" class="rounded-full mx-auto mb-4 w-40 h-40 object-cover" />
+                    <h5 class="text-xl font-bold text-blue-800">dr. Harry Vaughan</h5>
+                    <p>Spesialis Jantung</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <img src="img/doctor3.png" alt="dr. Fattah Syach" class="rounded-full mx-auto mb-4 w-40 h-40 object-cover" />
+                    <h5 class="text-xl font-bold text-blue-800">dr. Fattah Syach</h5>
+                    <p>Spesialis Bedah</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <img src="img/doctor4.png" alt="dr. Angeliza Masni" class="rounded-full mx-auto mb-4 w-40 h-40 object-cover" />
+                    <h5 class="text-xl font-bold text-blue-800">dr. Angeliza Masni</h5>
+                    <p>Mata</p>
+                </div>
+            </div>
+
+            <!-- Jadwal Dokter -->
+            <div class="mt-16 px-4" data-aos="fade-up">
+                <h4 class="text-2xl font-bold text-center text-black-700 mb-6">Jadwal Praktek Dokter</h4>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white shadow-md rounded-xl">
+                        <thead class="bg-blue-100 text-blue-700">
+                            <tr>
+                                <th class="py-3 px-4 text-left">Nama Dokter</th>
+                                <th class="py-3 px-4 text-left">Spesialis</th>
+                                <th class="py-3 px-4 text-left">Hari</th>
+                                <th class="py-3 px-4 text-left">Jam</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr>
+                                <td class="py-3 px-4">dr. Syifa Khairunnisa</td>
+                                <td class="py-3 px-4">Anak</td>
+                                <td class="py-3 px-4">Senin - Rabu</td>
+                                <td class="py-3 px-4">08.00 - 12.00</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-3 px-4">dr. Harry Vaughan</td>
+                                <td class="py-3 px-4">Jantung</td>
+                                <td class="py-3 px-4">Selasa - Kamis</td>
+                                <td class="py-3 px-4">13.00 - 16.00</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4">dr. Fattah Syach</td>
+                                <td class="py-3 px-4">Bedah</td>
+                                <td class="py-3 px-4">Senin - Jumat</td>
+                                <td class="py-3 px-4">09.00 - 14.00</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-3 px-4">dr. Angeliza Masni</td>
+                                <td class="py-3 px-4">Mata</td>
+                                <td class="py-3 px-4">Rabu & Jumat</td>
+                                <td class="py-3 px-4">10.00 - 13.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Rating dan Ulasan Pengunjung -->
+    <section id="review-section" class="py-20 bg-white">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-black-700 mb-4">Rating & Ulasan Pasien</h2>
+            <p class="text-gray-600 mb-10 max-w-2xl mx-auto">Apa kata mereka yang telah berobat di Cipta Hospital</p>
+
+            <!-- Kumpulan Rating -->
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto items-center">
+                <!-- Nilai Rata-rata -->
+                <div>
+                    <h3 class="text-6xl font-bold text-yellow-400 mb-2">4.9</h3>
+                    <div class="text-yellow-400 text-2xl mb-2">★★★★★</div>
+                    <p class="text-gray-500">Dari 50 total ulasan</p>
+                </div>
+
+                <!-- Bar Rating Interaktif -->
+                <div class="space-y-3 text-left cursor-pointer">
+                    <div class="flex items-center group" onclick="filterReviews(5)">
+                        <div class="w-16 font-medium text-sm text-gray-700">5 ★</div>
+                        <div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                            <div class="bg-yellow-400 h-3 rounded-full" style="width: 70%"></div>
+                        </div>
+                        <span class="ml-2 text-sm text-gray-700">25</span>
+                    </div>
+                    <div class="flex items-center group" onclick="filterReviews(4)">
+                        <div class="w-16 font-medium text-sm text-gray-700">4 ★</div>
+                        <div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                            <div class="bg-yellow-400 h-3 rounded-full" style="width: 20%"></div>
+                        </div>
+                        <span class="ml-2 text-sm text-gray-700">10</span>
+                    </div>
+                    <div class="flex items-center group" onclick="filterReviews(3)">
+                        <div class="w-16 font-medium text-sm text-gray-700">3 ★</div>
+                        <div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                            <div class="bg-yellow-400 h-3 rounded-full" style="width: 7%"></div>
+                        </div>
+                        <span class="ml-2 text-sm text-gray-700">8</span>
+                    </div>
+                    <div class="flex items-center group" onclick="filterReviews(2)">
+                        <div class="w-16 font-medium text-sm text-gray-700">2 ★</div>
+                        <div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                            <div class="bg-yellow-400 h-3 rounded-full" style="width: 2%"></div>
+                        </div>
+                        <span class="ml-2 text-sm text-gray-700">5</span>
+                    </div>
+                    <div class="flex items-center group" onclick="filterReviews(1)">
+                        <div class="w-16 font-medium text-sm text-gray-700">1 ★</div>
+                        <div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                            <div class="bg-yellow-400 h-3 rounded-full" style="width: 1%"></div>
+                        </div>
+                        <span class="ml-2 text-sm text-gray-700">2</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daftar Review -->
+            <div id="review-list" class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 px-4 text-left hidden">
+                <!-- Review akan dimasukkan oleh JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Kontak -->
+    <section id="contact" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <h3 class="text-4xl font-semibold text-center mb-4">Hubungi Kami</h3>
+            <div class="w-20 h-1 bg-blue-500 mx-auto mb-12 rounded-full"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center max-w-3xl mx-auto">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/6281234567890?text=Halo%20Cipta%20Hospital%2C%20saya%20ingin%20bertanya." target="_blank" class="bg-green-500 text-white py-4 px-6 rounded-2xl shadow hover:bg-green-600 transition flex flex-col items-center">
+                    <span class="text-sm font-medium opacity-90">📱 WhatsApp</span>
+                    <span class="text-lg font-semibold">+62 812-3456-7890</span>
+                </a>
+
+                <!-- Telepon -->
+                <a href="tel:+62215551234" class="bg-blue-600 text-white py-4 px-6 rounded-2xl shadow hover:bg-blue-700 transition flex flex-col items-center">
+                    <span class="text-sm font-medium opacity-90">📞 Telepon</span>
+                    <span class="text-lg font-semibold">(021) 555-1234</span>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:info@ciptahospital.id?subject=Pertanyaan&body=Halo%20Cipta%20Hospital" class="bg-gray-700 text-white py-4 px-6 rounded-2xl shadow hover:bg-gray-800 transition flex flex-col items-center">
+                    <span class="text-sm font-medium opacity-90">✉️ Email</span>
+                    <span class="text-lg font-semibold">info@ciptahospital.id</span>
+                </a>
+            </div>
+
+            <!-- Alamat -->
+            <div class="mt-12 text-gray-700">
+                <h4 class="text-xl font-bold mb-2">Alamat Rumah Sakit</h4>
+                <p>📍 Jl. Bintaro Utama No. 123, Tangerang Selatan, Banten</p>
+                <p class="mt-2 font-medium">📌 Lokasi Google Maps:</p>
+                <iframe class="mt-4 rounded-lg shadow" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15861.84373147399!2d106.6880956!3d-6.3342852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1751218250163!5m2!1sid!2sid" width="100%" height="350"
+                    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white text-center py-6 mt-12">
+        <p>&copy; 2025 Cipta Hospital. All rights reserved.</p>
+        <p class="text-sm mt-1"> Create by Muetia Dwi Fazalwa</p>
+    </footer>
+
+    <div id="scrollCircle" class="fixed bottom-6 right-4 sm:right-5 md:right-6 w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg flex flex-col items-center justify-between py-2 transition-all duration-300 z-50 cursor-pointer group">
+        <!-- Scroll Up -->
+        <svg id="scrollToTopBtn" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:-translate-y-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+  </svg>
+
+        <div class="w-4 h-px bg-white opacity-30"></div>
+
+        <!-- Scroll Down -->
+        <svg id="scrollToBottomBtn" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:translate-y-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+  </svg>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script>
+        const allReviews = [];
+        const names = [
+            "Ayu Kartika", "Bambang Sutrisno", "Cindy Rahma", "Laras Ayuningtyas", "Dewi Andini", "Fitri Maulida",
+            "Gilang Ramadhan", "Hana Fauziah", "Imam Syafiq", "Karina Ayu", "Joko Santoso", "Maya Putri",
+            "Lukman Hakim", "Firman Hakim", "Qori Safira", "Oka Wibowo", "Tini Lestari", "Aiden Matthew Scott",
+            "Rina Agustina", "Putra Nugraha", "Vina Yolanda", "Ujang Koswara", "Zahra Fatin Nabila",
+            "Wahyu Permadi", "Yuni Maharani", "Zainal Abidin", "Keira Aluna Mahira", "Dian Wicaksono",
+            "Citra Larasati", "Bagus Prakoso", "Hana Shafira Az-Zahra", "Eko Prasetyo", "Intan Amelia",
+            "Nanda Permata", "Elina Zayana Mireya", "Alessandro Marco Bianchi", "Vania Reina Alea", "Bayu Nugroho",
+        ];
+
+
+        function getRandomName(index) {
+            return names[index % names.length];
+        }
+
+        function getPhoto(index) {
+            const gender = index % 2 === 0 ? 'men' : 'women';
+            const id = (index * 3) % 99;
+            return `https://randomuser.me/api/portraits/${gender}/${id}.jpg`;
+        }
+
+        function createReviews(count, rating) {
+            for (let i = 1; i <= count; i++) {
+                const name = getRandomName(i + rating * 10);
+                const photo = getPhoto(i + rating * 7);
+                const comment = `Pelayanan memuaskan. Ulasan ke-${i} untuk rating ${rating} bintang.`;
+                allReviews.push({
+                    name,
+                    rating,
+                    comment,
+                    photo
+                });
+            }
+        }
+
+        // Jumlah ulasan sesuai permintaan
+        createReviews(25, 5); // ⭐⭐⭐⭐⭐
+        createReviews(10, 4); // ⭐⭐⭐⭐
+        createReviews(8, 3); // ⭐⭐⭐
+        createReviews(5, 2); // ⭐⭐
+        createReviews(2, 1); // ⭐
+
+        function renderReviews(filtered) {
+            const container = document.getElementById("review-list");
+            container.innerHTML = "";
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<p class="text-gray-500 col-span-full text-center">Belum ada ulasan untuk rating ini.</p>`;
+            } else {
+                filtered.forEach(r => {
+                    container.innerHTML += `
+          <div class="bg-white p-6 rounded-xl shadow-md">
+            <div class="flex items-center mb-4">
+              <img src="${r.photo}" class="w-12 h-12 rounded-full mr-4" alt="${r.name}">
+              <div>
+                <h5 class="font-semibold text-gray-800">${r.name}</h5>
+                <div class="text-yellow-400 text-sm">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
+              </div>
+            </div>
+            <p class="text-gray-700">${r.comment}</p>
+          </div>
+        `;
+                });
+            }
+
+            container.classList.remove("hidden");
+        }
+
+        function filterReviews(rating) {
+            const filtered = allReviews.filter(r => r.rating === rating);
+            renderReviews(filtered);
+        }
+    </script>
+
+
+    <script>
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        const scrollToBottomBtn = document.getElementById("scrollToBottomBtn");
+
+        if (scrollToTopBtn) {
+            scrollToTopBtn.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        if (scrollToBottomBtn) {
+            scrollToBottomBtn.addEventListener("click", () => {
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script>
+
+    <script>
+        function bukaFormulir() {
+            document.getElementById("modalFormulir").classList.remove("hidden");
+        }
+
+        function tutupFormulir() {
+            document.getElementById("modalFormulir").classList.add("hidden");
+        }
+    </script>
+
+    <!-- ... sections with IDs as usual ... -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.getElementById('menuToggle');
+            const menu = document.getElementById('mobileMenu');
+
+            // Hamburger toggle
+            toggle.addEventListener('click', () => {
+                if (window.innerWidth < 768) {
+                    const isHidden = menu.classList.contains('hidden');
+                    if (isHidden) {
+                        menu.classList.remove('hidden');
+                        setTimeout(() => {
+                            menu.classList.remove('opacity-0', 'translate-y-2', 'pointer-events-none');
+                        }, 10);
+                    } else {
+                        menu.classList.add('opacity-0', 'translate-y-2', 'pointer-events-none');
+                        setTimeout(() => {
+                            menu.classList.add('hidden');
+                        }, 200);
+                    }
+                }
+            });
+
+            // Close menu when link clicked
+            const links = menu.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 768) {
+                        menu.classList.add('opacity-0', 'translate-y-2', 'pointer-events-none');
+                        setTimeout(() => {
+                            menu.classList.add('hidden');
+                        }, 200);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
